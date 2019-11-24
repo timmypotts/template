@@ -1,11 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const employee = require('Employee.js');
+const engineer = require('Engineer.js');
+const intern = require('Intern.js');
+const manager = require('Manager.js');
 
-
-function Employee(name, id, title, email, gitName){
-    this.name = name;
-    this.id = id;
-    this.title = title;
-    this.email = email;
-    this.git = 'github.com/' + gitName;
-}
