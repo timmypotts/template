@@ -58,7 +58,7 @@ function setManager() {
     ])
         .then(function (data) {
             var manager = new Manager(data.managerName, data.idNumber, data.manEmail, data.offnum);
-            teamlist.push(manager);
+
             openHTML(manager);
             setManager(manager);
             console.log('\n');
