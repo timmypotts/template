@@ -77,7 +77,7 @@ function newEngineer() {
         {
             type: 'input',
             message: "Please enter the engineer's ID number:",
-            name: "employeeId",
+            name: "is",
         },
         {
             type: 'input',
@@ -91,7 +91,7 @@ function newEngineer() {
         }
     ])
         .then(function (data) {
-            let engineer = new Engineer(data.employeeName, data.employeeID, data.employeeEmail, data.engineerGitHub);
+            let engineer = new Engineer(data.name, data.id, data.email, data.git);
             teamlist.push(engineer);
             console.log('\n');
             menu();
