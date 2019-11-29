@@ -134,16 +134,16 @@ function openHTML(manager) {
     var init = htmlGen.initializeHTML(manager);
     var managerhtml = htmlGen.insertManager(manager);
     fs.writeFile('team.html', init, function (err) {
-        if (err) throw err;
+        if(err) throw err;
     });
     fs.appendFile('team.html', managerhtml, function (err) {
-        if (err) throw err;
+        if(err) throw err;
     });
 }
 
 function addToFile ( data) {
     fs.appendFile("team.html", data, function(err) {
-        if (err) return errl
+        if(err) return errl
     });
 }
 
