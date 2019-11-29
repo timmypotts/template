@@ -1,6 +1,4 @@
-initializeHTML(data) {
-    return
-    `s<!DOCTYPE html>
+s<!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -9,7 +7,7 @@ initializeHTML(data) {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
             integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-        <title>${data.name}'s Team</title>
+        <title>Timothy Potts's Team</title>
     </head>
     
     <body>
@@ -17,69 +15,49 @@ initializeHTML(data) {
     
     <div class="container">
         <div class="row">
-        `;
-}
-
-function insertManager(data) {
-    return
-    `
+        
     <div class="col-sm-4 d-flex pb-3">
     <div class="card" style="width: 18rem;">
         <div class="card-body bg-primary">
-            <h4 class="card-title text-light">${data.managerName}</h4>
+            <h4 class="card-title text-light">undefined</h4>
             <h5 class="card-title text-light">Manager</h5>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${data.idNumber} </li>
-            <li class="list-group-item">Email: <a class="card-link">${data.manEmail}</a> </a></li>
-            <li class="list-group-item">Office Number: ${data.offnum}</li>
+            <li class="list-group-item">ID: undefined </li>
+            <li class="list-group-item">Email: <a class="card-link">undefined</a> </a></li>
+            <li class="list-group-item">Office Number: undefined</li>
         </ul>
     </div>
 </div>
-`;
-}
 
-function insertEngineer(data) {
-    return
-    `
     <div class="col-sm-4 d-flex pb-3">
     <div class="card" style="width: 18rem;">
         <div class="card-body bg-primary">
-            <h4 class="card-title text-light">${data.name}</h4>
+            <h4 class="card-title text-light">undefined</h4>
             <h5 class="card-title text-light">Manager</h5>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${data.employeeId} </li>
-            <li class="list-group-item">Email: <a class="card-link">${data.email}</a></li>
-            <li class="list-group-item">GitHub:<a class="card-link"> www.github.com/${data.git}</a></li>
+            <li class="list-group-item">ID: undefined </li>
+            <li class="list-group-item">Email: <a class="card-link">undefined</a></li>
+            <li class="list-group-item">GitHub:<a class="card-link"> www.github.com/undefined</a></li>
         </ul>
     </div>
 </div>
-`;
-}
 
-function insertIntern() {
-    return
-    `
     <div class="col-sm-4 d-flex pb-3">
     <div class="card" style="width: 18rem;">
         <div class="card-body bg-primary">
-            <h4 class="card-title text-light">${data.name}</h4>
+            <h4 class="card-title text-light">undefined</h4>
             <h5 class="card-title text-light">Manager</h5>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${data.employeeId} </li>
-            <li class="list-group-item">Email: <a class="card-link">${data.email}</a></li>
-            <li class="list-group-item">School: ${data.school}</li>
+            <li class="list-group-item">ID: undefined </li>
+            <li class="list-group-item">Email: <a class="card-link">undefined</a></li>
+            <li class="list-group-item">School: undefined</li>
         </ul>
     </div>
 </div>
-`;
-}
 
-function closeHTML() {
-    return
-    `
     </div>
     </div>
 
@@ -94,15 +72,4 @@ function closeHTML() {
         crossorigin="anonymous"></script>
 </body>
 
-</html>`;
-}
-
-module.exports = {
-    initializeHTML:initializeHTML,
-    closeHTML:closeHTML,
-    insertManager:insertManager,
-    insertEngineer:insertEngineer,
-    insertIntern:insertIntern
-}
-
-
+</html>

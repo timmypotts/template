@@ -4,6 +4,7 @@ const Employee = require('./lib/Employee.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
+const htmlGen = require('./lib/htmlGen.js')
 
 var teamlist = [];
 startBuilding();
@@ -17,17 +18,17 @@ function menu() {
             choices: ['Engineer', "Intern", "Finish Team"]
         }
     ])
-    .then(answers => {
-        if (answers.choice === "Engineer"){
-            newEngineer();
-        }
-        else if (answers.choice === "Intern"){
-            newIntern();
-        }
-        else {
-            finishTeam();
-        }
-    });
+        .then(answers => {
+            if (answers.choice === "Engineer") {
+                newEngineer();
+            }
+            else if (answers.choice === "Intern") {
+                newIntern();
+            }
+            else {
+                finishTeam();
+            }
+        });
 }
 
 
@@ -55,12 +56,19 @@ function setManager() {
             name: 'offnum',
         }
     ])
-    .then(function(data) {
-        var manager = new Manager(data.managerName, data.idNumber, data.manEmail, data.offnum);
-        teamlist.push(manager);
-        console.log(manager);
-        menu();
-    });
+        .then(function (data) {
+            var manager = new Manager(data.managerName, data.idNumber, data.manEmail, data.offnum);
+            teamlist.push(manager);
+            var init = htmlGen.initializeHTML(manager);
+            var managerhtml = htmlGen.insertManager(manager);
+            fs.writeFile('team.html', init, function (err) {
+                if (err) throw err;
+            });
+            fs.appendFile('team.html', managerhtml, function (err) {
+                if (err) throw err;
+            });
+            menu();
+        });
 
 }
 
@@ -87,12 +95,15 @@ function newEngineer() {
             name: "git",
         }
     ])
-    .then(function(data) {
-        let engineer = new Engineer(data.employeeName, data.employeeID, data.employeeEmail, data.engineerGitHub);
-
-        teamlist.push(engineer);
-        menu();
-    });
+        .then(function (data) {
+            let engineer = new Engineer(data.employeeName, data.employeeID, data.employeeEmail, data.engineerGitHub);
+            let engineerhtml = htmlGen.insertEngineer(engineer);
+            fs.appendFile('team.html', engineerhtml, function (err) {
+                if (err) throw err;
+            });
+            teamlist.push(engineer);
+            menu();
+        });
 }
 
 
@@ -119,16 +130,23 @@ function newIntern() {
             message: "Please enter the new intern's school."
         }
     ])
-    .then(function(data) {
-        let intern = new Intern(data.name, data.employeeId, data.email, data.school);
-
-        teamlist.push(intern);
-        menu();
-    });
+        .then(function (data) {
+            let intern = new Intern(data.name, data.employeeId, data.email, data.school);
+            let internhtml = htmlGen.insertIntern(intern);
+            fs.appendFile('team.html', internhtml, function (err) {
+                if (err) throw err;
+            });
+            teamlist.push(intern);
+            menu();
+        });
 }
 
 
-function finishTeam(){
+function finishTeam() {
+    close = htmlGen.closeHTML();
+    fs.appendFile('team.html', close, function (err) {
+        if (err) throw err;
+    });
     console.log('DONE!');
 }
 
