@@ -59,7 +59,6 @@ function setManager() {
         .then(function (data) {
             var manager = new Manager(data.managerName, data.idNumber, data.manEmail, data.offnum);
             teamlist.push(manager);
-            var managerhtml = htmlGen.insertManager(manager);
             openHTML(manager);
             console.log('\n');
             menu();
@@ -92,10 +91,6 @@ function newEngineer() {
     ])
         .then(function (data) {
             let engineer = new Engineer(data.employeeName, data.employeeID, data.employeeEmail, data.engineerGitHub);
-            let engineerhtml = htmlGen.insertEngineer(engineer);
-            fs.appendFile('team.html', engineerhtml, function (err) {
-                if (err) throw err;
-            });
             teamlist.push(engineer);
             console.log('\n');
             menu();
@@ -128,10 +123,6 @@ function newIntern() {
     ])
         .then(function (data) {
             let intern = new Intern(data.name, data.employeeId, data.email, data.school);
-            let internhtml = htmlGen.insertIntern(intern);
-            fs.appendFile('team.html', internhtml, function (err) {
-                if (err) throw err;
-            });
             teamlist.push(intern);
             console.log('\n');
             menu();
