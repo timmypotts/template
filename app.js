@@ -60,6 +60,7 @@ function setManager() {
             var manager = new Manager(data.managerName, data.idNumber, data.manEmail, data.offnum);
             teamlist.push(manager);
             openHTML(manager);
+            setManager(manager);
             console.log('\n');
             menu();
         });
@@ -132,30 +133,33 @@ function newIntern() {
 
 function openHTML(manager) {
     var init = htmlGen.initializeHTML(manager);
-    var managerhtml = htmlGen.insertManager(manager);
     fs.writeFile('team.html', init, function (err) {
         if(err) throw err;
     });
+}
+
+function setManager(manager){
+    var managerhtml = htmlGen.insertManager(manager);
     fs.appendFile('team.html', managerhtml, function (err) {
         if(err) throw err;
     });
 }
 
-function addToFile ( data) {
+function addToFile(data) {
     fs.appendFile("team.html", data, function(err) {
-        if(err) return errl
+        if(err) return err;
     });
 }
 
 
 function addEmployees(teamlist) {
-    teamlist.forEach(function (data) {
+    teamlist.forEach(function(data) {
         switch (data.role) {
             case "Intern":
                 addToFile(htmlGen.insertIntern(data));
                 break;
             case "Engineer":
-                addToFile(htmlGen.insertIntern(data));
+                addToFile(htmlGen.insertEngineer(data));
                 break;
             default:
                 break;
@@ -172,7 +176,6 @@ function finishTeam(teamlist) {
     });
     console.log('DONE!');
 }
-
 
 function startBuilding() {
     console.log("Let's build a team");
