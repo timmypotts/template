@@ -164,7 +164,7 @@ function addEmployees(teamlist) {
                 addToFile(htmlGen.insertIntern(data));
                 break;
             case "Engineer":
-                addToFile(htmlGen.addEngineer(data));
+                addToFile(htmlGen.insertIntern(data));
                 break;
             default:
                 break;
