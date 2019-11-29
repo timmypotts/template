@@ -67,6 +67,7 @@ function setManager() {
             fs.appendFile('team.html', managerhtml, function (err) {
                 if (err) throw err;
             });
+            console.log('\n');
             menu();
         });
 
@@ -102,6 +103,7 @@ function newEngineer() {
                 if (err) throw err;
             });
             teamlist.push(engineer);
+            console.log('\n');
             menu();
         });
 }
@@ -137,9 +139,11 @@ function newIntern() {
                 if (err) throw err;
             });
             teamlist.push(intern);
+            console.log('\n');
             menu();
         });
 }
+
 
 
 function finishTeam() {
