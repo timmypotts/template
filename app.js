@@ -56,11 +56,11 @@ function setManager() {
             name: 'offnum',
         }
     ])
-        .then(function (data) {
+        .then(function(data) {
             var manager = new Manager(data.managerName, data.idNumber, data.manEmail, data.offnum);
-
+            console.log(manager.name);
             openHTML(manager);
-            setManager(manager);
+            writeManager(manager);
             console.log('\n');
             menu();
         });
@@ -138,7 +138,7 @@ function openHTML(manager) {
     });
 }
 
-function setManager(manager){
+function writeManager(manager){
     var managerhtml = htmlGen.insertManager(manager);
     fs.appendFile('team.html', managerhtml, function (err) {
         if(err) throw err;
