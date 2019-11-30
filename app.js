@@ -90,7 +90,7 @@ function newEngineer() {
             name: "git",
         }
     ])
-        .then(function (data) {
+        .then(function(data) {
             let engineer = new Engineer(data.name, data.id, data.email, data.git);
             teamlist.push(engineer);
             console.log('\n');
@@ -103,27 +103,27 @@ function newIntern() {
     inquirer.prompt([
         {
             type: "input",
-            name: "employeeName",
+            name: "name",
             message: "Please enter the new intern's name."
         },
         {
             type: "input",
-            name: "employeeID",
+            name: "id",
             message: "Please enter the new intern's ID number."
         },
         {
             type: "input",
-            name: "employeeEmail",
+            name: "email",
             message: "Please enter the new intern's ID email address."
         },
         {
             type: "input",
-            name: "internSchool",
+            name: "school",
             message: "Please enter the new intern's school."
         }
     ])
         .then(function (data) {
-            let intern = new Intern(data.name, data.employeeId, data.email, data.school);
+            let intern = new Intern(data.name, data.id, data.email, data.school);
             teamlist.push(intern);
             console.log('\n');
             menu();
